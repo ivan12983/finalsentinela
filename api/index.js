@@ -1,3 +1,4 @@
+```javascript
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
@@ -146,4 +147,11 @@ app.get("/medicacoes", (req, res) => {
 });
 
 // START
-module.exports = app;
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+```
+
+Essa alteração faz o `node api/index.js` **continuar executando e escutar a porta fornecida pelo Render**, corrigindo o `Application exited early`.
